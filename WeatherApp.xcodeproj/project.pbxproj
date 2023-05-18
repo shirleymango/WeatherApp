@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		EE5870A62A15397800387454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870A52A15397800387454 /* AppDelegate.swift */; };
 		EE5870A82A15397800387454 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870A72A15397800387454 /* SceneDelegate.swift */; };
-		EE5870AA2A15397800387454 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870A92A15397800387454 /* ViewController.swift */; };
-		EE5870AD2A15397800387454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5870AB2A15397800387454 /* Main.storyboard */; };
 		EE5870AF2A15397900387454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5870AE2A15397900387454 /* Assets.xcassets */; };
 		EE5870B22A15397900387454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5870B02A15397900387454 /* LaunchScreen.storyboard */; };
+		EE5870BB2A1539A800387454 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870BA2A1539A800387454 /* View.swift */; };
+		EE5870BE2A1539C100387454 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870BD2A1539C100387454 /* Interactor.swift */; };
+		EE5870C12A1539CF00387454 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870C02A1539CF00387454 /* Presenter.swift */; };
+		EE5870C42A1539E100387454 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870C32A1539E100387454 /* Entity.swift */; };
+		EE5870C72A1539EC00387454 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5870C62A1539EC00387454 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE5870A22A15397800387454 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5870A52A15397800387454 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5870A72A15397800387454 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EE5870A92A15397800387454 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EE5870AC2A15397800387454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE5870AE2A15397900387454 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5870B12A15397900387454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5870B32A15397900387454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE5870BA2A1539A800387454 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = View.swift; path = VIPER/View.swift; sourceTree = "<group>"; };
+		EE5870BD2A1539C100387454 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Interactor.swift; path = VIPER/Interactor.swift; sourceTree = "<group>"; };
+		EE5870C02A1539CF00387454 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Presenter.swift; path = VIPER/Presenter.swift; sourceTree = "<group>"; };
+		EE5870C32A1539E100387454 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Entity.swift; path = VIPER/Entity.swift; sourceTree = "<group>"; };
+		EE5870C62A1539EC00387454 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Router.swift; path = VIPER/Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,14 @@
 			children = (
 				EE5870A52A15397800387454 /* AppDelegate.swift */,
 				EE5870A72A15397800387454 /* SceneDelegate.swift */,
-				EE5870A92A15397800387454 /* ViewController.swift */,
-				EE5870AB2A15397800387454 /* Main.storyboard */,
 				EE5870AE2A15397900387454 /* Assets.xcassets */,
 				EE5870B02A15397900387454 /* LaunchScreen.storyboard */,
 				EE5870B32A15397900387454 /* Info.plist */,
+				EE5870BA2A1539A800387454 /* View.swift */,
+				EE5870BD2A1539C100387454 /* Interactor.swift */,
+				EE5870C02A1539CF00387454 /* Presenter.swift */,
+				EE5870C32A1539E100387454 /* Entity.swift */,
+				EE5870C62A1539EC00387454 /* Router.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -126,7 +135,6 @@
 			files = (
 				EE5870B22A15397900387454 /* LaunchScreen.storyboard in Resources */,
 				EE5870AF2A15397900387454 /* Assets.xcassets in Resources */,
-				EE5870AD2A15397800387454 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5870AA2A15397800387454 /* ViewController.swift in Sources */,
+				EE5870C72A1539EC00387454 /* Router.swift in Sources */,
+				EE5870C12A1539CF00387454 /* Presenter.swift in Sources */,
+				EE5870BB2A1539A800387454 /* View.swift in Sources */,
+				EE5870C42A1539E100387454 /* Entity.swift in Sources */,
+				EE5870BE2A1539C100387454 /* Interactor.swift in Sources */,
 				EE5870A62A15397800387454 /* AppDelegate.swift in Sources */,
 				EE5870A82A15397800387454 /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +158,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EE5870AB2A15397800387454 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE5870AC2A15397800387454 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EE5870B02A15397900387454 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
