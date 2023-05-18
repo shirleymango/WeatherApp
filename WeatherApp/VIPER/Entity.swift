@@ -11,6 +11,11 @@ struct Location: Codable {
     let name: String
 }
 
+struct Current: Codable {
+    let temp_f: Float
+}
+
 struct Weather: Codable {
     let location: Location
+    let current: Current
 }
