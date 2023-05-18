@@ -26,7 +26,7 @@ class LocationInteractor: AnyInteractor {
                 return
             }
             do {
-                let entities = try JSONDecoder().decode([Location].self, from: data)
+                let entities = try JSONDecoder().decode(Weather.self, from: data)
                 self.presenter?.interactorDidFetchLocation(with: .success(entities))
             }
             catch {

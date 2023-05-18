@@ -25,6 +25,7 @@ class LocationRouter: AnyRouter {
         
         presenter.interactor = interactor
         presenter.router = router
+        presenter.view = view
         interactor.presenter = presenter
         view.presenter = presenter
         router.entry = view as? EntryPoint

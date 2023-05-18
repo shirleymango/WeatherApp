@@ -12,7 +12,7 @@ protocol AnyView {
     // reference presenter
     var presenter: AnyPresenter? { get set }
     // function to update view - with data or with error
-    func update(with location: [Location])
+    func update(with weather: Weather)
     func update(with error: String)
 }
 
@@ -22,7 +22,7 @@ class LocationViewController: UIViewController, AnyView {
     private let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.isHidden = true
+        label.isHidden = false
         return label
     }()
     
@@ -30,7 +30,7 @@ class LocationViewController: UIViewController, AnyView {
         super.viewDidLoad()
         view.addSubview(label)
         label.center = view.center
-        print("view did load")
+        view.backgroundColor = .systemPink
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,14 +39,18 @@ class LocationViewController: UIViewController, AnyView {
         label.center = view.center
     }
     
-    func update(with location: [Location]) {
-        self.label.text = location[0].name
-        self.label.isHidden = false
+    func update(with weather: Weather) {
+        DispatchQueue.main.async {
+            print(weather.location.name)
+            self.label.text = weather.location.name
+            self.label.isHidden = false
+        }
     }
     
     func update(with error: String) {
         DispatchQueue.main.async {
-            self.label.text = error
+            self.label.text = "error"
+            self.label.backgroundColor = UIColor.white
             self.label.isHidden = false
         }
     }

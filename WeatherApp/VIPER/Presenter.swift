@@ -13,20 +13,25 @@ protocol AnyPresenter {
     var view: AnyView? { get set }
     
     // funtion to work with interactor
-    func interactorDidFetchLocation(with result: Result<[Location], Error>)
+    func interactorDidFetchLocation(with result: Result<Weather, Error>)
 }
 
 class LocationPresenter: AnyPresenter {
     var router: AnyRouter?
     
-    var interactor: AnyInteractor?
+    var interactor: AnyInteractor? {
+        didSet {
+            interactor?.getCurrent()
+        }
+    }
     
     var view: AnyView?
     
-    func interactorDidFetchLocation(with result: Result<[Location], Error>) {
+    func interactorDidFetchLocation(with result: Result<Weather, Error>) {
         switch result {
-        case .success(let location):
-            view?.update(with: location)
+        case .success(let weather):
+            print(weather.location.name)
+            view?.update(with: weather)
         case .failure:
             view?.update(with: "error")
         }

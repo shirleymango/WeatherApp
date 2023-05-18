@@ -10,3 +10,7 @@ import Foundation
 struct Location: Codable {
     let name: String
 }
+
+struct Weather: Codable {
+    let location: Location
+}
