@@ -55,6 +55,8 @@ class LocationViewController: UIViewController, AnyView {
             print(weather.location.name)
             self.nameLabel.text = weather.location.name
             self.nameLabel.isHidden = false
+            let temp = NSString(format: "%.0f", weather.current.temp_f) as String
+            self.tempLabel.text = temp + "°"
         }
     }
     
