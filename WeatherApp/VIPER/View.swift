@@ -26,6 +26,13 @@ class LocationViewController: UIViewController, AnyView {
         return nameLabel
     }()
     
+    private let tempLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.isHidden = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(nameLabel)
