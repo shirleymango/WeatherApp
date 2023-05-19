@@ -20,10 +20,11 @@ class LocationViewController: UIViewController, AnyView {
     var presenter: AnyPresenter?
     
     private let nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.textAlignment = .center
-        nameLabel.isHidden = false
-        return nameLabel
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = label.font.withSize(35)
+        label.isHidden = false
+        return label
     }()
     
     private let tempLabel: UILabel = {
@@ -36,14 +37,14 @@ class LocationViewController: UIViewController, AnyView {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(nameLabel)
-        nameLabel.center = view.center
         view.backgroundColor = .systemPink
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        nameLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
-        nameLabel.center = view.center
+        nameLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
+        nameLabel.center.x = view.center.x
+        nameLabel.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
     }
     
     func update(with weather: Weather) {
