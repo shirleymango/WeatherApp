@@ -16,7 +16,17 @@ protocol AnyView {
     func update(with error: String)
 }
 
-class LocationViewController: UIViewController, AnyView {
+class LocationViewController: UIViewController, AnyView, UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+                myCell.backgroundColor = UIColor.blue
+        return myCell
+    }
+    
     var presenter: AnyPresenter?
     
     private let nameLabel: UILabel = {
@@ -50,7 +60,7 @@ class LocationViewController: UIViewController, AnyView {
        
        let subtitleLabel: UILabel = {
            let label = UILabel()
-           label.text = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        label.text = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
            label.numberOfLines = 0
            label.sizeToFit()
            label.textColor = UIColor.white
@@ -96,6 +106,20 @@ class LocationViewController: UIViewController, AnyView {
         view.backgroundColor = .systemPink
         setupScrollView()
         setupViews()
+        
+        // add collection view
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+                layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+                layout.itemSize = CGSize(width: 60, height: 60)
+        var myCollectionView:UICollectionView?
+                myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+                myCollectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+                myCollectionView?.backgroundColor = UIColor.white
+                
+                myCollectionView?.dataSource = self
+                myCollectionView?.delegate = self
+         
+                view.addSubview(myCollectionView ?? UICollectionView())
     }
     
     override func viewDidLayoutSubviews() {
